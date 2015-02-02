@@ -87,13 +87,13 @@ def _process_file(source_text, to_format, from_format, extra_args):
             data={'from': from_format, 'to': to_format},
             files={'input_files[]': temp_file},
         )
-    if resp.ok:
-        return resp.text
-    else:
-        print('temp_file = %r' % temp_file)
-        raise RuntimeError(
-            'Call to docverter failed - resp = %r; resp.content = %r'
-            % (resp, resp.content))
+        if resp.ok:
+            return resp.text
+        else:
+            print('temp_file = %r' % temp_file)
+            raise RuntimeError(
+                'Call to docverter failed - resp = %r; resp.content = %r'
+                % (resp, resp.content))
 
 
 def get_pandoc_formats():
