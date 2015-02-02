@@ -2,7 +2,6 @@
 
 import os
 import tempfile
-import time
 import unittest
 
 import docverter
@@ -23,9 +22,6 @@ def _test_converter(to, format=None, extra_args=()):
 
 
 class TestDocverter(unittest.TestCase):
-    def setUp(self):
-        time.sleep(2)
-
     def test_converts_valid_format(self):
         self.assertEqual(_test_converter(format='md', to='rest'), 'ok')
 
