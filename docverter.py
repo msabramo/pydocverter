@@ -101,19 +101,6 @@ def get_pandoc_formats():
     Dynamic preprocessor for Pandoc formats.
     Return 2 lists. "from_formats" and "to_formats".
     '''
-    # from_formats = [u'docbook', u'docx', u'epub', u'haddock', u'html',
-    #                 u'json', u'latex', u'markdown', u'markdown_github',
-    #                 u'markdown_mmd', u'markdown_phpextra',
-    #                 u'markdown_strict', u'mediawiki', u'native',
-    #                 u'opml', u'org', u'rst', u't2t', u'textile', u'twiki']
-    # to_formats = [u'asciidoc', u'beamer', u'context', u'docbook', u'docx',
-    #               u'dokuwiki', u'dzslides', u'epub', u'epub3', u'fb2',
-    #               u'haddock', u'html', u'html5', u'icml', u'json', u'latex',
-    #               u'man', u'markdown', u'markdown_github', u'markdown_mmd',
-    #               u'markdown_phpextra', u'markdown_strict', u'mediawiki',
-    #               u'native', u'odt', u'opendocument', u'opml', u'org', u'pdf',
-    #               u'plain', u'revealjs', u'rst', u'rtf', u's5', u'slideous',
-    #               u'slidy', u'texinfo', u'textile']
     from_formats = ['markdown', 'texttile', 'rst', 'html', 'docbook', 'latex']
     to_formats = ['markdown', 'rst', 'html', 'latex', 'context', 'mediawiki',
                   'textile', 'org', 'texinfo', 'docbook', 'docx', 'epub',
