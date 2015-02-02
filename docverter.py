@@ -90,6 +90,7 @@ def _process_file(source_text, to_format, from_format, extra_args):
     if resp.ok:
         return resp.text
     else:
+        print('temp_file = %r' % temp_file)
         raise RuntimeError(
             'Call to docverter failed - resp = %r; resp.content = %r'
             % (resp, resp.content))

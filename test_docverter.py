@@ -43,6 +43,8 @@ class TestDocverter(unittest.TestCase):
         with tempfile.NamedTemporaryFile('w+t', suffix='.md',
                                          delete=False) as test_file:
             file_name = test_file.name
+            print('test_file = %r' % test_file)
+            print('file_name = %r' % file_name)
             test_file.write('#some title\n')
             test_file.flush()
         expected = u'some title{0}=========={0}{0}'.format(os.linesep)
@@ -55,6 +57,8 @@ class TestDocverter(unittest.TestCase):
         with tempfile.NamedTemporaryFile('w+t', suffix='.rst',
                                          delete=False) as test_file:
             file_name = test_file.name
+            print('test_file = %r' % test_file)
+            print('file_name = %r' % file_name)
             test_file.write('#some title\n')
             test_file.flush()
         expected = u'some title{0}=========={0}{0}'.format(os.linesep)
