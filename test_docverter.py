@@ -51,7 +51,7 @@ class TestDocverter(unittest.TestCase):
             print('file_name = %r' % file_name)
             test_file.write('#some title\n')
             test_file.flush()
-        expected = u'some title{0}=========={0}{0}'.format(os.linesep)
+        expected = 'some title{0}=========={0}{0}'.format(os.linesep)
         received = docverter.convert(file_name, 'rst')
         self.assertEqualExceptForNewlineEnd(expected, received)
 
@@ -65,12 +65,12 @@ class TestDocverter(unittest.TestCase):
             print('file_name = %r' % file_name)
             test_file.write('#some title\n')
             test_file.flush()
-        expected = u'some title{0}=========={0}{0}'.format(os.linesep)
+        expected = 'some title{0}=========={0}{0}'.format(os.linesep)
         received = docverter.convert(file_name, 'rst', format='md')
         self.assertEqualExceptForNewlineEnd(expected, received)
 
     def test_basic_conversion_from_string(self):
-        expected = u'some title{0}=========={0}{0}'.format(os.linesep)
+        expected = 'some title{0}=========={0}{0}'.format(os.linesep)
         received = docverter.convert('#some title', 'rst', format='md')
         self.assertEqualExceptForNewlineEnd(expected, received)
 
