@@ -8,6 +8,7 @@ __all__ = ['convert', 'get_pandoc_formats']
 
 from tempfile import NamedTemporaryFile
 import os
+import time
 
 import requests
 
@@ -82,33 +83,41 @@ def _process_file(source_text, to_format, from_format, extra_args):
         temp_file.write(source_text)
         temp_file.seek(0)
 
-        req = requests.Request(
-            'POST', url,
-            data={'from': from_format, 'to': to_format},
-            files={'input_files[]': temp_file},
-        )
-        prepared = req.prepare()
-        session = requests.Session()
-        resp = session.send(prepared)
-        # import pdb; pdb.set_trace()
-        if resp.ok:
-            return resp.text
-        else:
-            if resp.status_code == 500:
-                req = prepared
-                print('**** Got a 500 error from server *****')
-                print('{0}\n{1}\n{2}\n\n{3}'.format(
-                    '-----------START-----------',
-                    req.method + ' ' + req.url,
-                    '\n'.join('{0}: {1}'.format(k, v)
-                              for k, v in req.headers.items()),
-                    req.body,
-                ))
-            print('temp_file = %r' % temp_file)
-            print('temp_file.name = %r' % temp_file.name)
-            raise RuntimeError(
-                'Call to docverter failed - resp = %r; resp.content = %r'
-                % (resp, resp.content))
+        max_tries = 10
+        num_tries = 0
+
+        while num_tries < max_tries:
+            req = requests.Request(
+                'POST', url,
+                data={'from': from_format, 'to': to_format},
+                files={'input_files[]': temp_file},
+            )
+            num_tries += 1
+            print('*** Request #%d to %s ... ' % (num_tries, url))
+            prepared = req.prepare()
+            session = requests.Session()
+            resp = session.send(prepared)
+            # import pdb; pdb.set_trace()
+            if resp.ok:
+                return resp.text
+            else:
+                if resp.status_code == 500:
+                    req = prepared
+                    print('**** Got a 500 error from server *****')
+                    print('{0}\n{1}\n{2}\n\n{3}'.format(
+                        '-----------START-----------',
+                        req.method + ' ' + req.url,
+                        '\n'.join('{0}: {1}'.format(k, v)
+                                  for k, v in req.headers.items()),
+                        req.body,
+                    ))
+                print('temp_file = %r' % temp_file)
+                print('temp_file.name = %r' % temp_file.name)
+                time.sleep(2)
+
+        raise RuntimeError(
+            'Call to docverter failed - resp = %r; resp.content = %r'
+            % (resp, resp.content))
 
 
 def get_pandoc_formats():
