@@ -97,10 +97,10 @@ def _process_file(source_text, to_format, from_format, extra_args):
             if resp.status_code == 500:
                 req = prepared
                 print('**** Got a 500 error from server *****')
-                print('{}\n{}\n{}\n\n{}'.format(
+                print('{0}\n{1}\n{2}\n\n{}'.format(
                     '-----------START-----------',
                     req.method + ' ' + req.url,
-                    '\n'.join('{}: {}'.format(k, v)
+                    '\n'.join('{0}: {1}'.format(k, v)
                               for k, v in req.headers.items()),
                     req.body,
                 ))
