@@ -15,7 +15,7 @@ setup(
     version='0.0.0',
     url='https://github.com/msabramo/pydocverter',
     license='MIT',
-    description='Client for Docverter document conversion service',
+    description='Client for Docverter document conversion service (pandoc as a service)',
     long_description=long_description,
     author='Marc Abramowitz',
     author_email='marc@marc-abramowitz.com',
