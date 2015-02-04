@@ -3,6 +3,10 @@ pydocverter
 
 Python client for Docverter_ service
 
+.. image:: https://pypip.in/version/pydocverter/badge.svg?style=flat
+    :target: https://pypi.python.org/pypi/pydocverter/
+    :alt: Latest Version
+
 Docverter_ is a hosted service
 that can do convert documents from one format to another (using pandoc_).
 For example, it can be used to convert Markdown_ documents to reStructuredText_.
