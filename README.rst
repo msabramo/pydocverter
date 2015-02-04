@@ -6,6 +6,9 @@ Python client for Docverter_ service
 .. image:: https://pypip.in/version/pydocverter/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/pydocverter/
     :alt: Latest Version
+    
+.. image:: https://travis-ci.org/msabramo/pydocverter.svg?branch=master
+    :target: https://travis-ci.org/msabramo/pydocverter    
 
 Docverter_ is a hosted service
 that can do convert documents from one format to another (using pandoc_).
