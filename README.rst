@@ -32,6 +32,12 @@ It has a very similar API to that of pypandoc_, so that you can do stuff like:
     converter.convert('somefile.md', 'rst')
 
 
+Similar
+==================
+
+https://github.com/lukedmor/ghmarkdown
+
+
 .. _Docverter: http://www.docverter.com/
 .. _pandoc: http://johnmacfarlane.net/pandoc
 .. _Markdown: http://daringfireball.net/projects/markdown/
